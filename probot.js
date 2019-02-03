@@ -1,12 +1,27 @@
 const Discord = require('discord.js');
-const moment = require("moment");  
-const fs = require("fs");      
-const dateFormat = require('dateformat');
-const client = new Discord.Client(); 
-const jimp = require("jimp");
-const Canvas = require("canvas"); 
-const prefix = "!"
-const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
+const client = new Discord.Client();
+
+
+
+
+client.login('NDk2NTk5NjM4MDE5NjcwMDE2.Dzimmw.CmuR9HiMXWWVgFe2JEDrbljRq4w'); 
+
+
+
+client.on('ready',  () => {
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'); 
+  console.log('by safa7');
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  console.log(`Logged in as  * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  console.log('is online')
+client.user.setStatus("dnd");
+});
+
+// playing
+client.on('ready', () => {                           
+client.user.setGame(``,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`-help | On 20 Servers`,'https://www.twitch.tv/v5bz');
+});          
 
 let banse = new Set();
 client.on('guildBanAdd', function(guild) {
@@ -4823,4 +4838,3 @@ client.on('message', message => {
   });
 
 
-client.login(process.env.BOT_TOKEN);
