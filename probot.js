@@ -2019,14 +2019,14 @@ client.on('ready', () => {
 
 client.on('message', async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(prefix)) return undefined;
+  if (!msg.content.startsWith(prefix)#play) return undefined;
   const args = msg.content.split(' ');
   const searchString = args.slice(1).join(' ');
   const url = args[1] ? args[1] .replace(/<(.+)>/g, '$1') : '';
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length)
-  if (command === `play`) {
+  if (command === `#play`) {
     const voiceChannel = msg.member.voiceChannel;
     if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
     const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -2091,7 +2091,7 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
 
       return handleVideo(video, msg, voiceChannel);
     }
-  } else if (command === `skip`) {
+  } else if (command === `#skip`) {
     if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
     if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
     serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
@@ -2121,7 +2121,7 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
   msg.channel.send({embed: embedNP})
      return handleVideo(video, msg, msg.member.voiceChannel);
 
-  } else if (command === `queue`) {
+  } else if (command === `#queue`) {
     if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
     let index = 0;
     const embedqu = new Discord.RichEmbed()
@@ -2129,14 +2129,14 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`)
     return msg.channel.sendEmbed(embedqu);
-  } else if (command === `pause`) {
+  } else if (command === `#pause`) {
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause();
       return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
     }
     return msg.channel.send('لا يوجد شيء حالي ف العمل.');
-  } else if (command === "resume") {
+  } else if (command === "#resume") {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
@@ -2245,7 +2245,7 @@ function play(guild, song) {
     let dd = love.createReactionCollector(dislikee , {max:5});
     let cn = love.createReactionCollector(cnn , {max:5});
 
-        ll.on("collect", r => {
+        ll.on("#collect", r => {
           yyyy[msg.guild.id].like++;
   love.edit({embed : new Discord.RichEmbed()
   .setTitle(`**${ idk.title}**`)
@@ -2265,7 +2265,7 @@ function play(guild, song) {
 });
     })
 
-    dd.on("collect", r => {
+    dd.on("#collect", r => {
       yyyy[msg.guild.id].dislike++;
   love.edit({embed : new Discord.RichEmbed()
   .setTitle(`**${ idk.title}**`)
@@ -2284,7 +2284,7 @@ function play(guild, song) {
   .setTimestamp()
 });
 })
-    cn.on("collect", r => {
+    cn.on("#collect", r => {
   love.edit({embed : new Discord.RichEmbed()
   .setTitle(`**${ idk.title}**`)
   .setURL( idk.url)
@@ -2310,7 +2310,7 @@ function play(guild, song) {
 }
 });
 client.on('message', message => {
-  if(message.content === prefix + 'colors') {
+  if(message.content === prefix + '#colors') {
   if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
 let menu = new Discord.RichEmbed()
 .setImage('https://b.top4top.net/p_1002p20mv1.png')
@@ -2321,7 +2321,7 @@ message.channel.sendEmbed(menu)
 
 
 client.on('message', message => {
-  if(message.content === prefix + 'createcolors') {
+  if(message.content === prefix + '#createcolors') {
                        if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
        if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
     message.guild.createRole({
@@ -4697,7 +4697,7 @@ if (err) console.error(err)
 });
 })
 const sWlc = {}
-const premium = ['429972030092476437', '', '', '']
+const premium = ['504797413161173005', '', '', '']
 client.on('message', message => {
 var prefix = "#";
 if(message.channel.type === "dm") return;
@@ -4793,7 +4793,7 @@ client.on("guildMemberAdd", member => {
 
     })
 
-    const devs = ['429972030092476437'];
+    const devs = ['438371243801051141'];
 
 client.on('message', message => {
     let argresult = message.content.split(` `).slice(1).join(' ');
