@@ -1,22 +1,12 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-
-
-
-
-client.login('NDk2NTk5NjM4MDE5NjcwMDE2.Dzimmw.CmuR9HiMXWWVgFe2JEDrbljRq4w'); 
-
-
-
-client.on('ready',  () => {
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'); 
-  console.log('by safa7');
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-  console.log(`Logged in as  * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-  console.log('is online')
-client.user.setStatus("dnd");
-});
+const moment = require("moment");  
+const fs = require("fs");      
+const dateFormat = require('dateformat');
+const client = new Discord.Client(); 
+const jimp = require("jimp");
+const Canvas = require("canvas"); 
+const prefix = "!"
+const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
 
 // playing
 client.on('ready', () => {                           
@@ -4837,4 +4827,4 @@ client.on('message', message => {
 
   });
 
-
+client.login('NDk2NTk5NjM4MDE5NjcwMDE2.Dzimmw.CmuR9HiMXWWVgFe2JEDrbljRq4w'); 
